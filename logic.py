@@ -99,3 +99,24 @@ def update_account (user_id, amount):
     db.session.commit()
     
     return True
+
+
+def spend_money(user_id, amount):
+    if amount <= 0:
+        return False
+    
+    control = update_account(user_id, amount * -1)
+    
+    if not control:
+        return False
+
+    spend = Spending(
+          amount,
+          datetime.now(),
+          user_id)
+    
+    db.session.add(spend)
+    
+    db.session.commit()
+    
+    return True
