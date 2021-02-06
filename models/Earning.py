@@ -19,5 +19,5 @@ onupdate='CASCADE', ondelete='CASCADE'), nullable=False)
         self.when = when
         self.accounts_id = accounts_id
 
-def __repr__(self):
-    return f"<Earning {self.id}>"
+    def __repr__(self):
+        return f"<Earning {self.id}>"
