@@ -43,6 +43,7 @@ def get_welcome_message(bot_data):
                )
     return response
 
+
 def register_account(user_id):
     account = db.session.query(Account).get(user_id)
     db.session.commit()
@@ -54,3 +55,12 @@ def register_account(user_id):
             return True
     
     return False
+
+
+def get_balance (user_id):
+    account = db.session.query(Account).get(user_id)
+    db.session.commit()
+    
+    if not account:
+          return None
+    return account.balance
